@@ -13,18 +13,18 @@ object App {
 //    t1.start()
 //    t2.start()
 
-      def rates = {
+//      def rates = {
 //        val v1 = getRatesLocation5
 //        val v2 = getRatesLocation6
 //        println(s"Sum: ${v1 + v2}")
 
 //        val tf1 = getRatesLocation7
 //        val tf2 = getRatesLocation8
-        getRatesLocation8.onComplete{v1 =>
-          getRatesLocation7.onComplete{ v2 =>
-            println(s"Sum: ${v1 + v2}")
-          }
-        }
+//        getRatesLocation8.onComplete{v1 =>
+//          getRatesLocation7.onComplete{ v2 =>
+//            println(s"Sum: ${v1 + v2}")
+//          }
+//        }
 
 //        val v3: threads.ToyFuture[Int] = for{
 //          v1 <- getRatesLocation7
@@ -32,10 +32,24 @@ object App {
 //        } yield v1 + v2
 //
 //        v3.onComplete(println)
-      }
-      val start = System.currentTimeMillis()
-      printRunningTime(rates)
-      val end = System.currentTimeMillis()
-      println(s"Running time: ${end - start}  ${Thread.currentThread().getName}")
+//      }
+//      val start = System.currentTimeMillis()
+//      printRunningTime(rates)
+//      val end = System.currentTimeMillis()
+//      println(s"Running time: ${end - start}  ${Thread.currentThread().getName}")
+
+//    import scala.concurrent.ExecutionContext.Implicits.global
+//    def rates = {
+//      val l1 = future.getRatesLocation1
+//      val l2 = future.getRatesLocation2
+//      l1.flatMap { v1 =>
+//        l2.map{ v2 =>
+//           v1 + v2
+//        }
+//      }
+//    }
+    future
+
+    Thread.sleep(4000)
   }
 }
