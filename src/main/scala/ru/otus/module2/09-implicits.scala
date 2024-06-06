@@ -62,9 +62,9 @@ object implicits {
 
     // companion object Printer
     object Printer {
-       implicit val v: Printer[Bar] = new Printer[Bar] {
-         override def print(v: Bar): Unit = println(s"Implicit from companion object Printer + $v")
-       }
+//       implicit val v: Printer[Bar] = new Printer[Bar] {
+//         override def print(v: Bar): Unit = println(s"Implicit from companion object Printer + $v")
+//       }
     }
 
     case class Bar()
