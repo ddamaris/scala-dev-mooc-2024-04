@@ -1,6 +1,7 @@
 package ru.otus.module1
 
 import ru.otus.module1.threads.{Thread1, getRatesLocation1, getRatesLocation2, getRatesLocation3, getRatesLocation4, getRatesLocation5, getRatesLocation6, getRatesLocation7, getRatesLocation8, printRunningTime}
+import ru.otus.module2.homework_hkt_implicits
 import ru.otus.module2.implicits.{implicit_conversions, implicit_scopes}
 
 object App {
@@ -53,6 +54,6 @@ object App {
 //
 //    Thread.sleep(4000)
 
-    implicit_scopes
+    homework_hkt_implicits
   }
 }
