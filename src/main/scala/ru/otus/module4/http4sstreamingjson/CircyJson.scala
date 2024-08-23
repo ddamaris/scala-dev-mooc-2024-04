@@ -82,39 +82,37 @@ object HttpClientCircy {
   )
 }
 
-object MainCircyPars extends IOApp.Simple {
-  def run: IO[Unit] = for {
-    _<- restfulldesc.server.use(_ =>
-    HttpClientCircy.result.flatMap(IO.println) *> IO.never)
-  } yield ()
-}
+//object MainCircyPars extends IOApp.Simple {
+//  def run: IO[Unit] = for {
+//    _<- restfulldesc.server.use(_ =>
+//    HttpClientCircy.result.flatMap(IO.println) *> IO.never)
+//  } yield ()
+//}
 
-import fs2.Stream
+//import fs2.Stream
+//
+//object Http4sStreamExampleFromClient extends IOApp {
+//  def service: HttpRoutes[IO] = HttpRoutes.of[IO] {
+//    case req @ POST -> Root / "upload" =>
+//      val stream: Stream[IO, Byte] = req.body
+//      ???
+//  }
 
-object Http4sStreamExampleFromClient extends IOApp {
-  def service: HttpRoutes[IO] = HttpRoutes.of[IO] {
-    case req @ POST -> Root / "upload" =>
-      val stream: Stream[IO, Byte] = req.body
-      ???
-  }
-
-  override def run(args: List[String]): IO[ExitCode] = {
-    //todo run web server
-    ???
-  }
-}
+//  override def run(args: List[String]): IO[ExitCode] = {
+//    //todo run web server
+//  }
+//}
 
 
-object Http4sStreamExampleToClient extends IOApp {
-  def service: HttpRoutes[IO] = HttpRoutes.of[IO] {
-    case req @ Method.GET -> Root / "download" =>
-      val stream: Stream[IO, Byte] = Stream.emits("mxsdfnmkjdfnk".getBytes)
-
-      Ok(stream)
-  }
-
-  override def run(args: List[String]): IO[ExitCode] = {
-    //todo run web server
-    ???
-  }
-}
+//object Http4sStreamExampleToClient extends IOApp {
+//  def service: HttpRoutes[IO] = HttpRoutes.of[IO] {
+//    case req @ Method.GET -> Root / "download" =>
+//      val stream: Stream[IO, Byte] = Stream.emits("mxsdfnmkjdfnk".getBytes)
+//
+//      Ok(stream)
+//  }
+//
+//  override def run(args: List[String]): IO[ExitCode] = {
+//    //todo run web server
+//  }
+//}

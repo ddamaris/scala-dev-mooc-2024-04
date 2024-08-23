@@ -7,13 +7,13 @@ object functional_effects {
 
   object simpleProgram {
 
-    val greet = {
+    val greet: Unit = {
       println("Как тебя зовут?")
       val name = StdIn.readLine()
       println(s"Привет, $name")
     }
 
-    val askForAge = {
+    val askForAge: Unit = {
       println("Сколько тебе лет?")
       val age = StdIn.readInt()
       if (age > 18) println("Можешь проходить")
@@ -21,7 +21,7 @@ object functional_effects {
     }
 
 
-    def greetAndAskForAge = ???
+    def greetAndAskForAge: Unit = ???
 
 
   }
@@ -39,11 +39,10 @@ object functional_effects {
        * 1. Объявить исполняемую модель Console
        */
 
-      case class Console[A](run: () => A){ self =>
-
+      case class Console[A](run: () => A){
         def map[B](f: A => B): Console[B] = flatMap(a => Console.succeed(f(a)))
         def flatMap[B](f: A => Console[B]): Console[B] =
-          Console.succeed(f(self.run()).run())
+          Console.succeed(f(this.run()).run())
       }
 
 
