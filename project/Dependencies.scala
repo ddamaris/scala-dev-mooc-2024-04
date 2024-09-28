@@ -9,6 +9,7 @@ object Dependencies {
   lazy val PostgresVersion = "42.3.1"
   lazy val LogbackVersion = "1.2.3"
   lazy val CirceVersion = "0.14.2"
+  lazy val CassandraVersion  = "1.0.5"
 
 
   lazy val kindProjector =
@@ -73,7 +74,7 @@ object Dependencies {
     "org.http4s" %% "http4s-circe" % "0.23.14"
   )
 
-  lazy val akkaVersion = "2.8.3"
+  lazy val akkaVersion = "2.9.5"
   lazy val leveldbVersion = "0.7"
   lazy val leveldbjniVersion = "1.8"
   lazy val akkaContainers = Seq(
@@ -87,6 +88,9 @@ object Dependencies {
     "com.typesafe.akka" %% "akka-cluster-tools" % akkaVersion,
     "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
     "com.typesafe.akka" %% "akka-remote" % akkaVersion,
+    "com.typesafe.akka" %% "akka-serialization-jackson" % akkaVersion,
+    "com.lightbend.akka" %% "akka-projection-eventsourced" % "1.5.4",
+    "com.lightbend.akka" %% "akka-projection-slick" % "1.5.4",
     "io.aeron" % "aeron-driver" % "1.40.0",
     "io.aeron" % "aeron-client" % "1.40.0",
 
@@ -95,7 +99,9 @@ object Dependencies {
 
     "ch.qos.logback" % "logback-classic" % "1.2.3",
     "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion % Test,
-    "org.scalatest" %% "scalatest" % "3.1.0" % Test
+    "org.scalatest" %% "scalatest" % "3.1.0" % Test,
+    "com.typesafe.akka" %% "akka-persistence-cassandra"          % CassandraVersion,
+    "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % CassandraVersion
   )
 
 }
