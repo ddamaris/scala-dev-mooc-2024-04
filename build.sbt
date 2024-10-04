@@ -5,6 +5,8 @@ name := "scala-dev-mooc-2024-04"
 organization := "ru.otus"
 version := "1.0"
 
+resolvers += "Akka library repository".at("https://repo.akka.io/maven")
+
 libraryDependencies += Dependencies.scalaTest
 libraryDependencies ++= Dependencies.cats
 libraryDependencies ++= Dependencies.zio
